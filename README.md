@@ -1,95 +1,148 @@
-# Customer Churn Prediction using ANN
+# 🧠 Customer Churn & Salary Prediction using ANN
 
-This is a simple machine learning project that predicts whether a bank customer is likely to churn using an Artificial Neural Network (ANN) and a user-friendly Streamlit interface.
+This repository contains two AI-powered web applications built with Streamlit:
 
-## 🔗 Live App
+1. **Customer Churn Classification**  
+2. **Salary Regression Prediction**
 
-Try the app here:  
-https://churn-ann-deploy-jt2ktjxas5rjwhg2rzwwvm.streamlit.app/
+Both use Artificial Neural Networks (ANNs) built with TensorFlow and trained on structured customer data. The models are deployed on Streamlit Cloud for easy access.
 
-## 📝 Project Description
+---
 
-This app takes customer details like Age, Gender, Geography, Credit Score, Account Balance, Salary, etc., and predicts whether the customer will churn or not. The backend is powered by a deep learning model trained using TensorFlow and deployed via Streamlit Cloud.
+## 🔗 Live Apps
+
+- **🔄 Churn Classification App**  
+  👉 [churn-ann-deploy](https://churn-ann-deploy-jt2ktjxas5rjwhg2rzwwvm.streamlit.app/)
+
+- **💰 Salary Regression App**  
+  👉 [salary-prediction-app](https://churn-ann-deploy-zvstvywfxjgr2zxussg3pt.streamlit.app/)
+
+---
+
+## 📝 Project Descriptions
+
+### 🔄 1. Churn Classification
+
+Predicts whether a bank customer is likely to churn based on input parameters like:
+- Credit Score
+- Gender
+- Age
+- Balance
+- Salary
+- Geography
+- Tenure
+- Number of Products
+- Credit Card Ownership
+- Active Membership
+
+### 💰 2. Salary Regression
+
+Predicts the estimated salary of a customer using similar features, but trained on a regression-targeted ANN. Instead of churn, the model outputs a continuous value — predicted salary.
+
+---
 
 ## 🛠 Technologies Used
 
-- Python 3.10
-- TensorFlow / Keras
-- Streamlit
-- Pandas
-- NumPy
-- scikit-learn
-- Pickle
-- Git & GitHub
-- Streamlit Cloud
+- **Python 3.10+**
+- **TensorFlow / Keras**
+- **Streamlit**
+- **Pandas & NumPy**
+- **Scikit-learn**
+- **Pickle**
+- **Git & GitHub**
+- **Streamlit Cloud**
+
+---
 
 ## 📁 Project Structure
 
 ```
 .
-├── app.py                     # Main Streamlit application
-├── model.h5                   # Trained ANN model
-├── scaler.pkl                 # StandardScaler saved model
-├── label_encoder_gender.pkl   # LabelEncoder for Gender
-├── onehot_encoder_geo.pkl     # OneHotEncoder for Geography
-├── requirements.txt           # Python dependencies
-├── runtime.txt                # Python version (for Streamlit Cloud)
-├── .gitignore                 # Files to ignore during Git push
-└── README.md                  # This file
+├── app.py                    # Churn classification Streamlit app
+├── app_reg.py                # Salary regression Streamlit app
+├── model.h5                  # Classification model (ANN)
+├── regression_model.h5       # Regression model (ANN)
+├── scalerclass.pkl           # Scaler for classification inputs
+├── scalereg.pkl              # Scaler for regression inputs
+├── label_encoder_gender.pkl  # LabelEncoder for gender
+├── onehot_encoder_geo.pkl    # OneHotEncoder for geography
+├── Churn_Modelling.csv       # Original dataset
+├── requirements.txt          # Python dependencies
+├── README.md                 # This file
+├── .gitignore
+└── notebooks/
+    ├── Churnclassification.ipynb   # Classification model training
+    ├── salaryregression.ipynb      # Regression model training
+    └── prediction.ipynb            # Common prediction utilities
 ```
+
+---
 
 ## 💻 How to Run Locally
 
-Follow these steps:
-
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/your-username/churn-ann-deploy.git
+cd churn-ann-deploy
 ```
 
-### 2. Create virtual environment and activate it
+### 2. Create & Activate a Virtual Environment
 
 ```bash
-conda create -n churn-env python=3.10
-conda activate churn-env
+conda create -n ann-env python=3.10
+conda activate ann-env
 ```
 
-### 3. Install required libraries
+### 3. Install Required Libraries
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the Streamlit app
+### 4. Run Either App Locally
 
 ```bash
+# For churn classification
 streamlit run app.py
+
+# For salary regression
+streamlit run app_reg.py
 ```
 
-Then open your browser and visit:  
-http://localhost:8501
+Visit:  
+[http://localhost:8501](http://localhost:8501)
+
+---
 
 ## 🚀 How to Deploy on Streamlit Cloud
 
-1. Push your project to a GitHub repository.
-2. Go to https://streamlit.io/cloud and sign in.
-3. Click on “New app” and select your repo.
-4. Set the main file as `app.py`.
-5. Ensure `requirements.txt` and `runtime.txt` are present.
-6. Click “Deploy”.
+1. Push your code to GitHub
+2. Go to [Streamlit Cloud](https://streamlit.io/cloud)
+3. Click “New app” and choose your repo
+4. Set the correct main file (`app.py` or `app_reg.py`)
+5. Add `requirements.txt` and optionally `runtime.txt`
+6. Click **Deploy**
+
+---
 
 ## 🧠 What I Learned
 
-- How to build and train an ANN model
-- How to save and reuse encoders and scalers using pickle
-- How to use Streamlit to build web apps
-- How to deploy machine learning projects online
+- Building and training classification & regression ANN models
+- Handling encoders and scalers using `pickle`
+- Best practices for organizing ML projects
+- Creating clean, user-friendly UIs using Streamlit
+- Fixing deployment issues related to model deserialization
+- Publishing multiple apps on Streamlit Cloud from a single repo
+
+---
 
 ## 🙋‍♂️ Author
 
-Built by a college student learning machine learning and web app deployment.
+Built with ❤️ by a college student exploring AI, data science, and real-world ML deployment.
 
+---
 
-This project is licensed under the MIT License.
+## 📜 License
+
+This project is licensed under the **MIT License** — feel free to fork, extend, and contribute!
