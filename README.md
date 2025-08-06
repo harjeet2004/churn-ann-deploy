@@ -12,10 +12,10 @@ Both use Artificial Neural Networks (ANNs) built with TensorFlow and trained on 
 ## 🔗 Live Apps
 
 - **🔄 Churn Classification App**  
-  👉 [churn-ann-deploy](https://churn-ann-deploy-jt2ktjxas5rjwhg2rzwwvm.streamlit.app/)
+  👉 [Churn-Classification-app](https://churn-ann-deploy-jt2ktjxas5rjwhg2rzwwvm.streamlit.app/)
 
 - **💰 Salary Regression App**  
-  👉 [salary-prediction-app](https://churn-ann-deploy-zvstvywfxjgr2zxussg3pt.streamlit.app/)
+  👉 [Salary-Prediction-app](https://churn-ann-deploy-zvstvywfxjgr2zxussg3pt.streamlit.app/)
 
 ---
 
