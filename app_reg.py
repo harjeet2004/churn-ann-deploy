@@ -8,7 +8,7 @@ from sklearn.preprocessing import StandardScaler,LabelEncoder,OneHotEncoder
 import pandas as pd
 import pickle
 
-model=load_model('model.h5')
+model=load_model('regression_model.h5')
 
 with open('label_encoder_gender.pkl','rb') as file:
     gen_lab=pickle.load(file)
@@ -16,7 +16,7 @@ with open('label_encoder_gender.pkl','rb') as file:
 with open('onehot_encoder_geo.pkl','rb') as file:
     onehot=pickle.load(file)
 
-with open('scalerclass.pkl','rb') as file:
+with open('scalerreg.pkl','rb') as file:
     scaler=pickle.load(file)
 
 ## streamlit app
@@ -111,8 +111,10 @@ credit_score = st.number_input('Credit Score')
 
 
 # 🔷 6. ESTIMATED SALARY
-estimated_salary = st.number_input('Estimated Salary')
-
+exited = st.selectbox(
+    'Exited',
+    [0,1]       
+)
 
 # 🔷 7. TENURE (Slider: 0–10 years)
 tenure = st.slider('Tenure', 0, 10)
@@ -207,7 +209,7 @@ input_data = pd.DataFrame({
     'NumOfProducts': [num_of_products],                            # Same logic
     'HasCrCard': [has_cr_card],                                    # 0 or 1, wrapped in [ ]
     'IsActiveMember': [is_active_member],                          # 0 or 1, wrapped in [ ]
-    'EstimatedSalary': [estimated_salary]                          # Final column, wrapped in [ ]
+    'Exited': [exited]                          # Final column, wrapped in [ ]
 })
 
 # 📌 Now `input_data` is a proper table with shape (1, 9)
@@ -282,11 +284,6 @@ input_data_scaled=scaler.transform(input_data)
 
 prediction=model.predict(input_data_scaled)
 
-pred_prob=prediction[0][0] ## multidimensional array
+pred_salary=prediction[0][0] ## here, no prediction probability as here, continuous value os predicted (regression), no classification
 
-if pred_prob>0.5:
-    st.write("Customer is likely to churn")
-else:
-    st.write("Customer is not likely to churn")
-
-st.write(f"Churn probability: {pred_prob:.2f}")
+st.write(f"Estimated salary of the employee is: {pred_salary}")
