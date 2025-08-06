@@ -21,7 +21,7 @@ with open('scalerreg.pkl','rb') as file:
 
 ## streamlit app
 
-st.title('Customer Churn Prediction')
+st.title('Customer Salary Prediction')
 
 ##############################################################
 ### 📦 STREAMLIT USER INPUT INTERFACE FOR PREDICTION MODEL ###
